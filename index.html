@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>  Flexbox  </h1>
+
+
+    <h2> Задание 1: Свойство Display </h2>
+
+    <h3>Display: block;</h3>
+    <div class="block exercise1">
+       
+        <p>item-1</p>
+        <p>item-2</p>
+        <p>item-3</p>
+
+        <!-- Добавляем несколько строчных элементов, чтобы было видно как они себя ведут 
+         внутри блочного контейнера -->
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 1</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 2</a>
+
+    </div>
+
+    <h3>Display: inline;</h3>
+    <div class="inline exercise1">
+
+        <!-- Добавляем внутри строчного контейнера строчный элемент, чтобы не 
+         терять эффект строчности -->
+        <span>Display: inline;</span>
+    </div>
+
+    <!-- Добавляем несколько строчных элементов, чтобы было видно как себя ведет верхний 
+     контейнер со строчным типом -->
+    <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 1</a>
+    <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 2</a>
+
+    <h3>Display: flex;</h3>
+    <div class="flex exercise1">
+        
+        <!-- Все элементы ниже должны выстроиться в одну строку, так как 
+         задано свойство flex -->
+        <p>item-1</p>
+        <p>item-2</p>
+        <p>item-3</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 1</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 2</a>
+
+    </div>
+
+
+    <h2> Задание 2: Flex-контейнер </h2>
+
+    <div class="exercise2">
+
+       <!-- Все элементы ниже должны выстроиться в одну строку, так как 
+         задано свойство flex -->
+        <div><p>DIV</p></div>
+        <p>Абзац</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 1</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ссылка 2</a>
+        <img src="./media/bear.png" alt="toy bear" height="40">
+        <img src="./media/robot.png" alt="toy robot" height="40">
+
+    </div>
+
+
+    <h2> Задание 3: Свойства `flex-direction`, `flex-wrap`, `flex-flow` </h2>
+
+    <div class="flex-column-wrap  exercise3">
+        <!-- Все элементы будут выстроены в колонку. Высота блока ограничена до 500px.
+         Поэтому элементы, которые не влезают, будут перенесены в новую колонку. -->
+       <div>item-1</div>
+       <div>item-2</div>
+       <div>item-3</div>
+       <div>item-4</div>
+       <div>item-5</div>
+
+    </div>
+
+    <div class="flex-flow  exercise3">
+        
+        <!-- Здесь использовано сокращенное свойство 'flex-flow'.
+         Но в этот раз мы заменили значение 'column' на 'column-reverse' -->
+        <div>item-1</div>
+        <div>item-2</div>
+        <div>item-3</div>
+        <div>item-4</div>
+        <div>item-5</div>
+ 
+     </div>
+
+
+     <h2> Задание 4: Выравнивание элементов </h2>
+
+     <div class="flex-container">
+
+        <!-- Элементы ниже будут иметь разные размеры, чтобы более наглядно продемонстрировать
+         эффекты свойств justify-content, align-items, align-content -->
+        <div> <p>item-1</p> </div>
+        <div> <p>item-2</p> </div>
+        <div> <p>item-3</p> </div>
+        <div> <p>item-4</p> </div>
+        <div> <p>item-5</p> </div>
+        <div> <p>item-6</p> </div>
+        <div> <p>item-7</p> </div>
+        <div> <p>item-8</p> </div>
+        <div> <p>item-9</p> </div>
+        <div> <p>item-10</p> </div>
+        <div> <p>item-11</p> </div>
+        <div> <p>item-12</p> </div>
+
+     </div>
+
+
+     <h2> Задание 5: Свойства `flex-grow`, `flex-shrink`, `flex-basis` и сокращённое свойство `flex` </h2>
+
+     <!-- Ниже расположены несколько контейнеров элементы которых имеют разные значения для `flex-grow`, `flex-shrink`, `flex-basis` -->
+
+     <!-- Пример для `flex-grow` -->
+     <div class="flex-container-2">
+        <div class="item-1"><p>grow 2</p></div>
+        <div class="item-2"><p>grow 1</p></div>
+        <div class="item-3"><p>grow 1</p></div>
+     </div>
+
+     <!-- Пример для `flex-shrink` -->
+     <div class="flex-container-3">
+        <div class="item-1"><p>shrink 1</p></div>
+        <div class="item-2"><p>shrink 1</p></div>
+        <div class="item-3"><p>shrink 2</p></div>
+     </div>
+
+     <!-- Пример для `flex-basis` -->
+     <div class="flex-container-4">
+        <div class="item-1"><p>basis 100px</p></div>
+        <div class="item-2"><p>grow 1</p></div>
+        <div class="item-3"><p>grow 2</p></div>
+     </div>
+
+     <!-- Пример для `flex` который содержит значения `flex-grow`, `flex-shrink`, `flex-basis` -->
+     <div class="flex-container-5">
+        <div class="item-1"><p>flex: 0 0 120px;</p></div>
+        <div class="item-2"><p>flex: 0 1 100px;</p></div>
+        <div class="item-3"><p>flex: 2 1 70px;</p></div>
+     </div>
+
+
+     <h2> Задание 6: Практическое задание </h2>
+
+     <div class="flex-container-6">
+        <div class="item-1"><p>Ширина 50 %</p></div>
+        <div class="item-2"><p>Занимает оставшееся место</p></div>
+        <div class="item-3"><p>Ширина 150px</p></div>
+     </div>
+
+
+     <h2> Задание 7: Меню навигации с выравниванием по центру </h2>
+
+     <!-- Создаем меню темного цвета со ссылками -->
+     <nav>
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Authors</a>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+     </nav>
+
+
+     <h2> Задание 8: Галерея карточек </h2>
+
+     <!-- Создаем галерею из 12 карточек -->
+     <div class="gallery">
+
+        <!-- В каждой карточке есть заголовок, картинка, абзац и кнопка -->
+        <div class="card">
+            <h3>Lorem ipsum</h3>
+            <img src="https://picsum.photos/id/235/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Repellendus pariatur</h3>
+            <img src="https://picsum.photos/id/257/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Consectetur</h3>
+            <img src="https://picsum.photos/id/217/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur !</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Pariatur excepturi</h3>
+            <img src="https://picsum.photos/id/137/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet elit.</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Dolor sit amet</h3>
+            <img src="https://picsum.photos/id/231/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing </p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Adipisicing elit</h3>
+            <img src="https://picsum.photos/id/227/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Necessitatibus sunt</h3>
+            <img src="https://picsum.photos/id/232/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur !</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Lorem amet dolor</h3>
+            <img src="https://picsum.photos/id/337/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet </p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Sunt assumenda</h3>
+            <img src="https://picsum.photos/id/247/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet excepturi!</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Ipsum dolor sit</h3>
+            <img src="https://picsum.photos/id/234/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur elit.</p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Amet consectetur</h3>
+            <img src="https://picsum.photos/id/437/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur </p>
+            <button>Read more</button>
+        </div>
+
+        <div class="card">
+            <h3>Lorem adipisicing</h3>
+            <img src="https://picsum.photos/id/177/200/150" alt="random image">
+            <p>Lorem ipsum dolor sit, amet consectetur sit !</p>
+            <button>Read more</button>
+        </div>
+        
+     </div>
+
+</body>
+</html>
+

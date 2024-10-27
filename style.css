@@ -1,0 +1,420 @@
+/* Задание 1 ------------------------------------------------------  */
+
+h2 {
+    padding-top: 40px;
+}
+
+h3 {
+    text-align: center;
+}
+
+.block {
+    display: block;  /* Это свойство стоит по умолчанию */
+    /* контейнер блочного типа по ширине занимает всю сторку на 100% */
+
+    padding: 10px;
+
+    p {
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+    }
+
+    a {
+        margin-inline: 15px;
+    }
+}
+
+.inline {
+    display: inline; /* Это свойство меняет блочный тип на строчный. */
+    /* Ширина элемента уменьшается до ширины внутреннего содержимого
+    Если после этого элемента добавить строчный элемент, то он займет ту же строку 
+    и встанет рядом. Также верхние и нижние отступы здесь не сработают */
+}
+
+.inline ~ a {
+    margin-inline: 15px;
+}
+
+.flex {
+    display: flex;  /* Данный тип дает возможность для более гибкого контроля содержимого 
+    блока. Все элементы в блоке выстраиваются в строку, если не заданы свойства направления
+    и переноса */
+
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+
+    p {
+        padding: 10px;
+        background-color: #fff;
+    }
+}
+
+.exercise1 {
+    background-color: #70ff88;
+    border-radius: 3px;
+    margin-block: 30px; 
+    /* Свойство выше задает верхний и нижний отступы, но они не сработают на контейнере
+    строчного типа. Поэтому второй контейнер прижимается к заголовкам с верху и с низу.
+    Также нужно учесть что у заголовков есть свои отступы по умолчанию. */
+}
+
+
+/* Задание 2 ------------------------------------------------------ */
+
+.exercise2 {
+
+    display: flex;
+    /* Все элементы данного контейнера выстраиваются в одну строку */
+
+    gap: 10px; 
+
+    background-color: #97e7ff;
+    padding: 10px;
+
+}    
+
+
+/* Задание 3 ------------------------------------------------------ */
+
+.flex-column-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex-flow {
+    display: flex;
+    flex-flow: column-reverse wrap;
+}
+
+.exercise3 {
+    max-height: 280px;
+    gap:10px;
+    background-color: #fff7b1;
+    margin-bottom: 25px;
+    padding: 10px;
+    border: 1px solid #000;
+
+    div {
+        height: 80px;
+        background-color: #ffc64b;
+    }
+}
+
+
+/* Задание 4 ------------------------------------------------------ */
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap; /* Задаем свойства направления и переноса */
+    justify-content: flex-end; /* Пепеносим и прижимаем все элементы к правой части контейнера */
+    align-items: end; /* Прижимаем элементы отдельной строки к нижней части этой же строки
+    то есть все элементы каждой строки выравниваются относительно нижней части своей строки */
+    align-content: start; /* Прижимаем все строки к верхней части родительского контейнера */
+    gap: 10px; /* Задаем отступ между элементами */
+
+    height: 350px; 
+    width: 700px; 
+    /* Ограничеваем размеры родительского контейнера для того, чтобы увидеть
+    эффект переноса на новую строку */
+
+
+    border: 1px solid #000;
+    padding: 10px;
+
+    /* Стилизуем дочерние элементы */
+    div {
+        width: 80px;
+        height: 50px;
+        background-color: #ff9bd2;
+
+        p {
+            text-align: center;
+        }
+    }
+
+    /* Меняем высоту всех нечетных элементов */
+    div:where(:nth-child(odd)){
+        height: 70px;
+        background-color: #f04eff;
+    }
+
+    /* Меняем ширину нескольких элементов случайно */
+    div:where(:nth-child(1), :nth-child(3), :nth-child(8), :nth-child(11),) {
+        width: 50px;
+        background-color: #fac6ff;
+    }
+
+    /* Меняем высоту нескольких элементов случайно */
+    div:where( :nth-child(3), :nth-child(5), :nth-child(12),) {
+        height: 110px;
+    }
+
+    /* Данные изменения размеров дочерних элементов нужны для того чтобы увидеть 
+    перемещение элементов при изменении значении у таких свойств как  
+    justify-content, align-items, align-content */
+}
+
+
+/* Задание 5 ------------------------------------------------------ */
+
+.flex-container-2 {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+
+    div {
+        background-color: #c0fce8;
+        padding: 5px;
+        width: 100px; /* Задаем это значение чтобы элементы могли растягиваться */
+
+        p {
+            text-align: center;
+        }
+    }
+
+    .item-1 {
+        flex-grow: 2; /* Первый элемент стремиться расшириться в два раза больше соседних */
+    }
+
+    .item-2 {
+        flex-grow: 1;
+    }
+
+    .item-3 {
+        flex-grow: 1;
+    }
+}
+
+.flex-container-3 {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+
+    div {
+        background-color: #c0fce8;
+        padding: 5px;
+        width: 60%; /* Задаем данное значение чтобы элементы занимали все пространство строки */
+        
+        p {
+            text-align: center;
+        }
+    }
+
+    .item-1 {
+        flex-shrink: 1;
+    }
+
+    .item-2 {
+        flex-shrink: 1;
+    }
+
+    .item-3 {
+        flex-shrink: 2; /* Последний элемент стремиться сжаться в два раза меньше соседних */
+    }
+}
+
+.flex-container-4 {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+
+    div {
+        background-color: #c0fce8;
+        padding: 5px;
+        width: 70px; /* Задаем это значение чтобы элементы могли растягиваться */
+        
+        p {
+            text-align: center;
+        }
+    }
+
+    .item-1 {
+        flex-basis: 100px;  /* Задаем начальное значение ширины для этого дочернего элемента */
+    }
+
+    .item-2 {
+        flex-grow: 1;
+    }
+
+    .item-3 {
+        flex-grow: 2;
+    }
+}
+
+.flex-container-5 {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+
+    div {
+        background-color: #c0fce8;
+        padding: 5px;
+        
+        p {
+            text-align: center;
+        }
+    }
+
+    .item-1 {
+        flex: 0 0 120px; 
+        /* Здесь задано только значение для 'flex-basis' 
+        Поэтому у этого элемента будет фиксированная ширина 120px*/
+    }
+
+    .item-2 {
+        flex: 0 1 100px; 
+        /* Здесь заданы значения для `flex-shrink`, `flex-basis` 
+        Так как значение 'shrink' задано 1, а 'grow' задано 0, элемент будет сжиматься 
+        максимально до значения 'basis', то есть до 100px  */
+    }
+
+    .item-3 {
+        flex: 2 1 70px; 
+        /* Здесь заданы значения для всех `flex-grow`, `flex-shrink`, `flex-basis` 
+        При этом значение grow стоит 2. Из-за этого данный элемент расширяется и занимает все 
+        свободное место в родительском контейнере*/
+    }
+}
+
+
+/* Задание 6 ------------------------------------------------------ */
+
+.flex-container-6 {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+
+    div {
+        background-color: #e1c0fc;
+        padding: 5px;
+        
+        p {
+            text-align: center;
+        }
+    }
+
+    .item-1 {
+        flex: 0 0 50%;  
+        /* Задаем начальное значение ширины для этого дочернего элемента. 
+        При этом мы не задаем 'shrink' и 'grow' чтобы начальное значение не изменилось*/
+    }
+
+    .item-2 {
+        flex: 1 0 auto; 
+        /* Здесь мы задаем 'grow' как 1, чтобы он растягивался на всю оставшуюся ширину
+        Значение для 'basis' задаем как 'auto' чтобы оно автоматически подстраивалось.
+        'shrink' задаем как 0 чтобы элемент не сжимался*/
+    }
+
+    .item-3 {
+        flex: 0 1 150px;  
+        /* Элемент с фиксированным размером. Здесь мы поставили значение 'shrink' как 1
+        чтобы он сжимался до фиксированного начального значения*/
+    }
+}
+
+
+/* Задание 7 ------------------------------------------------------ */
+
+nav {
+    display: flex;
+    justify-content: space-evenly; 
+    /* Данное свойство и значение раставляет элементы равномерно по строке.
+    ширина отступов слева и справа совпадает с шириной промежутков между элементами */
+    align-items: center; 
+    /* Данное свойство и значение выравнивают все элементы по центру относительно 
+    высоты родительского контейнера*/
+
+
+    height: 60px;
+    /* Задаем фиксированную высоту чтобы увидеть эффекты выравнивания по высоте */
+    background-color: #4e4949;
+
+    a {
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+}
+
+
+/* Задание 8 ------------------------------------------------------ */
+
+.gallery {
+    display: flex;
+    flex-flow: column wrap; 
+    /* Распологаем все элементы по колонкам с переносом  */
+
+    gap: 4px;
+    
+
+    border: 1px solid #000;
+    padding: 10px;
+    height: 1260px;  
+    /* Ограничиваем высоту чтобы был перенос */
+
+}
+
+.gallery .card {
+
+    outline: 1px solid #4e4949;
+    padding: 5px;
+   
+    flex: 0 1 auto; 
+    /* Заранее задаем всем элементам данное значение, чтобы они сжимались до минимума в высоту */
+
+    h3 {
+        text-align: left;
+    }
+
+    button {
+        padding: 5px 10px;
+        outline: 0;
+        border: 1px solid #a3a3a3;
+        border-radius: 5px;
+        background-color: #b8dae2;
+    }
+}
+
+.gallery .card:nth-child(2) { 
+    flex: 0 0 500px; 
+    /* Фиксируем высоту второго элемента  */
+}
+
+.gallery .card:nth-child(5) { 
+    flex: 7 0 auto;
+    /* Пятый элемент будет растягиваться по больше других в своей колонке */
+}
+
+.gallery .card:nth-child(7) { 
+    flex: 0 0 50%;
+    /* Седьмой элемент будет занимать 50% высоты своей колонки */
+}
+
+.gallery .card:nth-child(12) { 
+    align-self: start;
+    /* Последний элемент будет прижиматься к левому краю своей колонки и 
+    его ширина уменьшится до размеров содержимого контента */
+}
